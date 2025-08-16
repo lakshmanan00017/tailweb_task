@@ -1,0 +1,38 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+    <div class="container my-5 border w-50 border shadow">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <h2 class="text-center">Register</h2>
+                {% include 'error.html' %}
+                <form  method="POST">
+                    {% csrf_token %}
+                
+                    <div class="mb-2">
+                        <label for="username" class="">Username</label>
+                        <input type="text" class="form-control border-2" id="username" value="" name="username"value="" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="password" class="">Password</label>
+                        <input type="password" class="form-control border-2" id="password" name="password"required >
+                    </div>
+                    <div class="mb-2">
+                        <label for="confirmPassword" class="">Confirm Password</label>
+                        <input type="password" class="form-control border-2" id="confirmPassword" name="confirm_password" required>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary w-100">Register</button>
+                </form>
+                <p class="text-center mt-3">Already have an account? <a href="{% url 'login_page' %}">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+
+{%  endblock %}

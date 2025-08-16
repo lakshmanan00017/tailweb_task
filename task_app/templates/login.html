@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+
+{% block content %}
+{% load static %}
+
+
+
+<div class="container my-5 border w-50 border shadow">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <h2 class="text-center">Login</h2>
+            {% include 'error.html' %}
+            <form  method="POST">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <label for="username" class="">Username</label>
+                    <input type="text" class="form-control border-2" id="username" name="username" placeholder="Enter Your EmaiId" required value="{{ form.username.value|default:'' }}">
+                </div>
+               
+                <div class="mb-2">
+                    <label for="passwoerd" class="">Password</label>
+                    <input type="password" class="form-control border-2" id="password" name="password"placeholder="Enter Password" required>
+                </div>
+                
+                
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col ms-5">
+            <a class="text-decoration-none" href="">Forgot password?</a>
+        </div>
+        <div class="col">
+            <p class="">New to Here? <a  class="text-decoration-none" href="{% url 'register' %}">Signup</a></p>
+        </div>
+    </div>
+  
+</div>
+
+
+{%  endblock %}

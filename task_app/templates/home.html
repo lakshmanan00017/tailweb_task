@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% block title %}
+<title>home</title>
+{% endblock %}
+{% block content %}
+
+
+{% include 'navbar.html' %}
+{% include 'error.html' %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Subject</th>
+      <th scope="col">mark</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+    <tr>
+      <td>{{ i.name }}</td>
+      <td>{{ i.subject }}</td>
+      <td>{{ i.mark }}</td>
+      <td>
+        <select id="pageSelector" onchange="location = this.value;">
+            <option value=""></option>
+            <option value="{% url 'update' i.id %}">Edit</option>
+            <option value="{% url 'delete' i.id %}">Delete</option>
+            
+        </select>
+      </td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+<a href="{% url 'add_student' %}" class="btn btn-secondary " role="button" >Add</a>
+{% endblock %}
