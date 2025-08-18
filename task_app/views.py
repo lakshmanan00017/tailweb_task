@@ -121,7 +121,7 @@ def update(request,id):
 
 def delete(request,id):
     token = request.COOKIES.get("session_token")
-    teacher_id = SESSION_STORE.get(token)
+    teacher_id = session_store.get(token)
     if not teacher_id:
         return redirect("login_page")
     mark=studends.objects.get(id=id)
